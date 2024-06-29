@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KE_6A_Crew Availability Calendar</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .calendar-container {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+    }
+    .calendar-day {
+      border: 1px solid #ccc;
+      padding: 10px;
+      position: relative;
+      overflow: hidden;
+      max-height: 100px; /* Adjust the max height as needed */
+    }
+    .weekend {
+      background-color: #f0f0f0;
+    }
+    .jz {
+      background-color:  #196f3d ;
+    }
+    .mr {
+      background-color:  #1a5276 ;
+    }
+    .tg {
+      background-color:  #fbc02d ;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-4 mb-4"><b>KE_6A_Crew</b> Availability Calendar</h1>
+    <div id="calendar"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="calendar.js"></script>
+</body>
+</html>
