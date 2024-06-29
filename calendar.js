@@ -37,6 +37,14 @@ document.addEventListener('DOMContentLoaded', function() {
       const monthGrid = document.createElement('div');
       monthGrid.classList.add('calendar-container');
 
+      // Add day names row
+      dayNames.forEach(dayName => {
+        const dayNameCell = document.createElement('div');
+        dayNameCell.classList.add('calendar-day-name');
+        dayNameCell.textContent = dayName;
+        monthGrid.appendChild(dayNameCell);
+      });
+
       const daysInMonth = new Date(month.getFullYear(), month.getMonth() + 1, 0).getDate();
 
       // Adjust start day of the month based on the first day of the month
@@ -58,14 +66,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         dayCell.textContent = day;
 
+        const checkIcon = document.createElement('i');
+        checkIcon.classList.add('fas', 'fa-check');
+        dayCell.appendChild(checkIcon);
+
         const dayEvents = events.filter(event => event.year == month.getFullYear() && event.month == month.getMonth() + 1 && event.day == day);
         dayEvents.forEach(event => {
           const userClass = event.user_class;
           const userSpan = document.createElement('span');
           userSpan.classList.add(userClass);
           userSpan.style.width = '100%';
-          userSpan.style.height = '10px';
+          userSpan.style.height = '20px';
           userSpan.style.display = 'block';
+          userSpan.style.color = 'white';
+          userSpan.style.textAlign = 'center';
+          userSpan.style.lineHeight = '20px';
+          userSpan.textContent = event.user_class;
           dayCell.appendChild(userSpan);
         });
 
@@ -77,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (spanToRemove) {
               spanToRemove.remove();
               removeDayColor(month.getFullYear(), month.getMonth() + 1, day, userClassToRemove);
+              dayCell.classList.remove('clicked');
             }
           } else if (users[user]) {
             const userSpan = document.createElement('span');
@@ -84,9 +101,14 @@ document.addEventListener('DOMContentLoaded', function() {
             userSpan.style.width = '100%';
             userSpan.style.height = '20px';
             userSpan.style.display = 'block';
+            userSpan.style.color = 'white';
+            userSpan.style.textAlign = 'center';
+            userSpan.style.lineHeight = '20px';
+            userSpan.textContent = users[user];
             dayCell.appendChild(userSpan);
 
             saveDayColor(month.getFullYear(), month.getMonth() + 1, day, users[user]);
+            dayCell.classList.add('clicked');
           } else {
             alert('Invalid input!');
           }

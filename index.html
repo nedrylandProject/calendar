@@ -5,32 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KE_6A_Crew Availability Calendar</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    .calendar-container {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 5px;
-    }
-    .calendar-day {
-      border: 1px solid #ccc;
-      padding: 10px;
-      position: relative;
-      overflow: hidden;
-      max-height: 100px; /* Adjust the max height as needed */
-    }
-    .weekend {
-      background-color: #f0f0f0;
-    }
-    .jz {
-      background-color:  #196f3d ;
-    }
-    .mr {
-      background-color:  #1a5276 ;
-    }
-    .tg {
-      background-color:  #fbc02d ;
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+ <style>
+  .calendar-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+  .calendar-day {
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    max-height: 100px; /* Adjust the max height as needed */
+    cursor: pointer;
+	text-transform: uppercase;
+  }
+  .calendar-day-name {
+    background-color: #CFCFCF;
+    color: #8D8D8D;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+  }
+  .weekend {
+    background-color: #f0f0f0;
+  }
+  .jz {
+    background-color: #196f3d;
+  }
+  .mr {
+    background-color: #1a5276;
+  }
+  .tg {
+    background-color: #fbc02d;
+  }
+  .fa-check {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.2em;
+    color: #28a745; /* green color for the check icon */
+    display: none; /* initially hidden */
+  }
+  .clicked .fa-check {
+    display: block; /* show the icon when the day cell is clicked */
+  }
+</style>
+
+  
 </head>
 <body>
   <div class="container">
